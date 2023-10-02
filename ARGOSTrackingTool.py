@@ -9,6 +9,9 @@
 # Date:   Fall 2023
 #--------------------------------------------------------------
 
+#Ask user for a date
+user_date = "7/3/2003" #input("Enter a date: ")
+
 #Create a variable pointing to the data file
 file_name = './data/raw/sara.txt'
 
@@ -46,3 +49,11 @@ for lineString in line_list:
         #Add items to dictionary
         date_dict[record_id] = obs_date
         location_dict[record_id] = (obs_lat,obs_lon)
+
+#Initialize key list
+keys = []
+
+#Loop through items in date_dict
+for key, value in date_dict.items():
+   if value == user_date:
+        keys.append(key)

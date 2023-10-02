@@ -10,7 +10,7 @@
 #--------------------------------------------------------------
 
 #Ask user for a date
-user_date = "7/3/2003" #input("Enter a date: ")
+user_date = input("Enter a date: ")
 
 #Create a variable pointing to the data file
 file_name = './data/raw/sara.txt'
@@ -57,3 +57,10 @@ keys = []
 for key, value in date_dict.items():
    if value == user_date:
         keys.append(key)
+
+#Loop through keys and report location
+for key in keys:
+    location = location_dict[key]
+    lat = location[0]
+    lng = location[1]
+    print(f"On {user_date}, Sara the turtle was seen at {lat} Lat, {lng} Lng.")

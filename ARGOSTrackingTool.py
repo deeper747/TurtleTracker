@@ -10,7 +10,7 @@
 #--------------------------------------------------------------
 
 #Ask user for a date
-user_date = input("Enter a date: ")
+user_date = input("Enter a date (m/d/yyyy): ")
 
 #Create a variable pointing to the data file
 file_name = './data/raw/sara.txt'
@@ -58,9 +58,19 @@ for key, value in date_dict.items():
    if value == user_date:
         keys.append(key)
 
-#Loop through keys and report location
-for key in keys:
-    location = location_dict[key]
-    lat = location[0]
-    lng = location[1]
-    print(f"On {user_date}, Sara the turtle was seen at {lat} Lat, {lng} Lng.")
+#Define regex
+import re
+user_date_format = re.compile(r'[1-9]+/[1-9]+/\d+')
+
+#Report if no record were found
+if user_date_format.findall(user_date) == []:
+    print(f"The data format should be m/d/yyyy")
+elif len(keys) == 0:
+    print(f"No records were found on {user_date}")
+else:
+    #Loop through keys and report location
+    for key in keys:
+        location = location_dict[key]
+        lat = location[0]
+        lng = location[1]
+        print(f"On {user_date}, Sara the turtle was seen at {lat}d Lat, {lng}d Lng.")

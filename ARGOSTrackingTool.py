@@ -60,7 +60,7 @@ for key, value in date_dict.items():
 
 #Define regex
 import re
-user_date_format = re.compile(r'[1-9]+/[1-9]+/\d+')
+user_date_format = re.compile(r'[1-9]?\d/[1-9]?\d/\d+')
 
 #Report if no record were found
 if user_date_format.findall(user_date) == []:

@@ -10,7 +10,7 @@
 #--------------------------------------------------------------
 
 #Ask user for a date
-user_date = input("Enter a date (m/d/yyyy): ")
+user_date = input("Enter a date ((m)m/(d)d/yyyy): ")
 
 #Create a variable pointing to the data file
 file_name = './data/raw/sara.txt'
@@ -64,7 +64,7 @@ user_date_format = re.compile(r'[1-9]?\d/[1-9]?\d/\d+')
 
 #Report if no record were found
 if user_date_format.findall(user_date) == []:
-    print(f"The data format should be m/d/yyyy")
+    print(f"The data format must be (m)m/(d)d/yyyy (no zero)")
 elif len(keys) == 0:
     print(f"No records were found on {user_date}")
 else:
